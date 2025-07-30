@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "Wireless Mouse",
+    "price": 25.99,
+    "category": "Electronics",
+    "inStock": true
+  },
+  {
+    "id": 2,
+    "name": "Bluetooth Headphones",
+    "price": 59.99,
+    "category": "Electronics",
+    "inStock": true
+  },
+  {
+    "id": 3,
+    "name": "Gaming Keyboard",
+    "price": 45.0,
+    "category": "Electronics",
+    "inStock": false
+  },
+  {
+    "id": 4,
+    "name": "Cotton T-shirt",
+    "price": 15.5,
+    "category": "Clothing",
+    "inStock": true
+  },
+  {
+    "id": 5,
+    "name": "Running Shoes",
+    "price": 89.99,
+    "category": "Footwear",
+    "inStock": true
+  },
+  {
+    "id": 6,
+    "name": "Stainless Steel Water Bottle",
+    "price": 19.95,
+    "category": "Home & Kitchen",
+    "inStock": true
+  },
+  {
+    "id": 7,
+    "name": "LED Desk Lamp",
+    "price": 29.99,
+    "category": "Home & Office",
+    "inStock": false
+  },
+  {
+    "id": 8,
+    "name": "Smartphone Stand",
+    "price": 9.99,
+    "category": "Accessories",
+    "inStock": true
+  },
+  {
+    "id": 9,
+    "name": "Yoga Mat",
+    "price": 35.0,
+    "category": "Fitness",
+    "inStock": true
+  },
+  {
+    "id": 10,
+    "name": "Backpack",
+    "price": 49.99,
+    "category": "Bags",
+    "inStock": false
+  }
+]
