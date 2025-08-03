@@ -1,0 +1,17 @@
+# Handle all text files
+* text=auto
+
+# Force LF endings for common source files
+*.js  text eol=lf
+*.json  text eol=lf
+*.md  text eol=lf
+*.html  text eol=lf
+*.css  text eol=lf
+*.ts  text eol=lf
+*.tsx text eol=lf
+
+# Binary files (don't modify line endings)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
