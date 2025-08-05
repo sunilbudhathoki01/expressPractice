@@ -2,6 +2,8 @@
 * text=auto
 
 # Force LF endings for common source files
+
+
 *.js  text eol=lf
 *.json  text eol=lf
 *.md  text eol=lf
