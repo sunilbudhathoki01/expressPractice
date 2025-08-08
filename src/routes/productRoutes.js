@@ -12,9 +12,11 @@ const Address=req.body.Address;
 const user={name,Address}
 res.json(user)
 })
-
+router.get("/",productController.getProds)
 router.get("/data",productController.getDatafromjson)
 router.post("/post",productController.createProducts)
 router.delete("/",productController.deleteProduct)
 router.put("/",productController.updateProduct)
+router.get("/square",productController.getSqaure)
+router.get("/data/:id",productController.getproductById)
 export default router
