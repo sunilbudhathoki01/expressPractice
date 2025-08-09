@@ -1,32 +1,37 @@
 import express from "express"
 import fs from "fs"
 import productService from "../services/productService.js";
-const getDatafromjson=(req,res)=>{
-    const products=productService.getproducts();
-    res.json(products);
-}
+// const getDatafromjson=(req,res)=>{
+//     const products=productService.getproducts();
+//     res.json(products);
+// }
+// const getSqaure=(req,res)=>{
+// //     const square=productService.getsquare()
+// //     res.json(square)
+// }
+
+
+// Crud Start from here
 const createProducts=(req,res)=>{
-    productService.createProducts()
-    res.status(200).send("Products Created successfully!")
+    productService.createProducts(req.body)
+    res.status(200).json("Products Created successfully!")
 }
 const deleteProduct=(req,res)=>{
-res.json("deleting a product:")
+    const id=req.params
+productService.deleteProduct(id)
+res.status(200).send(`product deleted of ID:${id}`)
 }
 const updateProduct=(req,res)=>{
-    res.json("updating a product")
+    productService.updateProduct()
 }
-const getProds=(req,res)=>{
+const getProducts=(req,res)=>{
 console.log(req.query)
 }
-const getSqaure=(req,res)=>{
-    const square=productService.getsquare()
-    res.json(square)
-}
+
 const getproductById=(req,res)=>{
-    const q=req.query
-    const product=productService.getproductById(q)
+    const product=productService.getproductById(req.query)
     res.json(product)
 
 }
-export default {getDatafromjson,createProducts,deleteProduct,updateProduct,getSqaure,getproductById,getProds}
+export default {getProducts,getproductById,createProducts,deleteProduct,updateProduct}
 

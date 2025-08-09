@@ -1,15 +1,12 @@
 import dotenv from "dotenv"
 dotenv.config()
-const name=process.env.name
-const port=process.env.port
-const version=process.env.version
-const lwade=process.env.lwade
 
 const config={
     name:process.env.name,
     port:process.env.port,
     version:process.env.version,
     Feature_Test:1,
+    MONGODB_URL:"mongodb://localhost:27017/HariHari"
 }
 export default config
 
