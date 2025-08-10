@@ -17,25 +17,33 @@ import model from "../models/Product.js";
 
 
 // getProducts
-const getproducts=((query)=>{
-const filteredProducts=model.filter((product)=>product.category==query.category)
-})
+const getproducts=async(query)=>{
+// const filteredProducts=model.filter((product)=>product.category==query.category)
+const products=await model.find()
+return products
+}
 
 // GetById
-const getproductById=(query)=>{
+const getproductById=async(id)=>{
     // const findProduct=products.filter(prod=>prod.category==query.category)
     // return findProduct;
+    const product=await model.findById(id)
+    return product;
 }
 // Post
-const createProducts=(data)=>{
-     model.create(data)
+const createProducts=async(data)=>{
+     const pros=await model.create(data)
+     return pros
 }
 // Delete
-const deleteProduct=()=>{
+const deleteProduct=async(id)=>{
+    const product=await model.findOneAndDelete(id)
+    return product
 
 }
 // Update
-const updateProduct=()=>{
+const updateProduct=async(id,data)=>{
+    const product=await model.findByIdAndUpdate(id,data)
 
 }
 
