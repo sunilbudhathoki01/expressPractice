@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import { type } from "os";
+import { ref } from "process";
 
 const productSchema=new mongoose.Schema({
     name:{
@@ -21,6 +22,12 @@ required:[true,"Name field is required"],
     createdAt:{
         type:Date,
         default:Date.now
+    },
+    createdBy:{
+      type:mongoose.Schema.Types.ObjectId,
+      ref:"User",
+      required:[true,"created by is required"]
+
     }
 
 })

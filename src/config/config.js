@@ -6,7 +6,8 @@ const config={
     port:process.env.port,
     version:process.env.version,
     Feature_Test:1,
-    MONGODB_URL:"mongodb://localhost:27017/HariHari"
+    MONGODB_URL:"mongodb://localhost:27017/HariHari",
+    JWT_SECRET:process.env.JWT_SECRET
 }
 export default config
 

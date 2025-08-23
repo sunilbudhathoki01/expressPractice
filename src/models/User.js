@@ -1,9 +1,11 @@
 import mongoose from "mongoose"
+import { MERCHANT, USER,ADMIN } from "../constants/role.js"
 
 const userSchema=new mongoose.Schema({
     name:{
         type:String,
-        required:[true,"Name is required"]
+        required:[true,"Name is required"],
+        unique:true
         },
       Address:{
         type:{
@@ -37,14 +39,19 @@ const userSchema=new mongoose.Schema({
         },
         password:{
             type:String,
-            required:[true,"password is required"]
+            required:[true,"password is required"],
+            Select:false
         },
-        // roles:{
-        //     type:String,
-        //     default:1,
-        //     default:["USER"],
-        //     enum:["ADMIN","User","MERCHANT"],
-        // }
+        roles:{
+            type:[String],
+            // default:1,
+            default:[USER],
+            enum:[ADMIN,USER,MERCHANT],
+        },
+        createdBy:{
+            type:mongoose.Schema.Types.ObjectId,
+            ref:USER
+        }
 
 })
 const User=mongoose.model("User",userSchema)

@@ -2,6 +2,7 @@ import express from "express"
 import fs from "fs"
 import productService from "../services/productService.js";
 import model from "../models/Product.js";
+import { error } from "console";
 // const getDatafromjson=(req,res)=>{
 //     const products=productService.getproducts();
 //     res.json(products);
@@ -15,7 +16,8 @@ import model from "../models/Product.js";
 // Crud Start from here
 const createProducts=async(req,res)=>{
   try {
-      const data=await productService.createProducts(req.body)
+    console.log(req.user)
+      const data=await productService.createProducts(req.body,req.user._id)
      res.status(201).json(data)
   } catch (error) {
     res.status(501).send(error.message)
@@ -25,8 +27,8 @@ const createProducts=async(req,res)=>{
 const deleteProduct=async(req,res)=>{
 try {
     const id=req.params.id
-const product =await productService.deleteProduct(id)
-res.json(`products deleted of id:${id}`)
+const product =await productService.deleteProduct(id,req.user._id)
+res.status(error.statusCode ||500).json(`products deleted of id:${id}`)
 
 } catch (error) {
     res.json(error.message)
@@ -34,17 +36,19 @@ res.json(`products deleted of id:${id}`)
 }
 const updateProduct=async(req,res)=>{
  try {
-       const product=await productService.updateProduct(req.params.id,req.body)
-    res.status(201).json(product)
+       const product=await productService.updateProduct(req.params.id,req.body,req.user._id)
+   return  res.status(201).json(product)
  } catch (error) {
-    res.json(error.message)
+    res.status(error.statusCode ||500).json(error.message)
  }
 }
 const getProducts=async(req,res)=>{
 // console.log(req.query)
 // const Product=model.find()
 // res.json(Product)
-const products=await productService.getproducts()
+const products=await productService.getproducts(req.query)
+console.log(req.headers.cookie)
+
 res.status(200).json(products);
 }
 const getproductById=async(req,res)=>{
